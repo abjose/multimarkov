@@ -1,0 +1,85 @@
+<!-- Tabs from https://css-tricks.com/functional-css-tabs-revisited/ -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8'>
+    <title>multi-markov</title>
+    <script src="multimarkov.js"></script>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background: #999;  
+    }
+    #page-wrap {
+        width: 960px; 
+        margin: 100px auto;
+    }
+    .tabs {
+        position: relative;   
+        min-height: 200px; /* This part sucks */
+        clear: both;
+        margin: 25px 0;
+    }
+    .tab {
+        float: left;
+    }
+    .tab label {
+        background: #eee;
+        padding: 7px; 
+        border: 1px solid #ccc; 
+        margin-left: -1px; 
+        position: relative;
+        left: 1px; 
+    }
+    .tab [type=radio] {
+        display: none;   
+    }
+    .content {
+        position: absolute;
+        top: 28px;
+        left: 0;
+        height: 145px;
+        width: 100%;
+        #      background: white;
+        #      right: 0;
+        #      bottom: 0;
+        padding: 20px;
+        #      border: 1px solid #ccc; 
+    }
+    [type=radio]:checked ~ label {
+        background: white;
+        border-bottom: 1px solid white;
+        z-index: 2;
+    }
+    [type=radio]:checked ~ label ~ .content {
+        z-index: 1;
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="page-wrap">
+      ctrl-click to remove tabs
+      <div class="tabs" id="tab-group">
+
+        <div class="tab" id="add-tab">
+          <label for="add">+</label>
+        </div>
+
+      </div>
+
+      <div>
+        <button id="generate">generate </button><input value=10 size="3" id="num2gen"></input> sentences
+      </div>
+      <br>
+      <div id="output"></div>
+      
+    </div>
+    
+  </body>
+
+</html>
